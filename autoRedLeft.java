@@ -82,7 +82,7 @@ class autoRedLeft extends LinearOpMode {
         // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
         robot.swingServo.setPosition(0.25);  //need to verify servo positions
         sleep(500);
-        if (robot.swingSensor.blue() > 3) {
+        if (robot.swingSensor.red() > 3) {
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.45)) {
                 robot.bottomLeft.setPower(.1);
@@ -91,7 +91,7 @@ class autoRedLeft extends LinearOpMode {
                 robot.topRight.setPower(.1);
             }
         }
-        else if (robot.swingSensor.red() > 3) {
+        else if (robot.swingSensor.blue() > 3) {
             runtime.reset();
             while (opModeIsActive() && (runtime.seconds() < 0.3)) {
                 robot.bottomLeft.setPower(-.1);
@@ -111,7 +111,7 @@ class autoRedLeft extends LinearOpMode {
         {
             robot.swingServo.setPosition(.275);  //need to verify servo positions
             sleep(500);
-            if (robot.swingSensor.blue() > 3) {
+            if (robot.swingSensor.red() > 3) {
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.3)) {
                     robot.bottomLeft.setPower(.1);
@@ -127,7 +127,7 @@ class autoRedLeft extends LinearOpMode {
                     robot.topRight.setPower(-.1);
                 }
             }
-            else if (robot.swingSensor.red() > 3) {
+            else if (robot.swingSensor.blue() > 3) {
                 runtime.reset();
                 while (opModeIsActive() && (runtime.seconds() < 0.3)) {
                     robot.bottomLeft.setPower(-.2);
@@ -154,10 +154,10 @@ class autoRedLeft extends LinearOpMode {
         //Step 1:  Drive sideways for 3 seconds
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 1.1)) {
-            robot.topLeft.setPower(-0.4);
-            robot.topRight.setPower(-0.4);
-            robot.bottomLeft.setPower(0.4);
-            robot.bottomRight.setPower(0.4);
+            robot.topLeft.setPower(0.4);
+            robot.topRight.setPower(0.4);
+            robot.bottomLeft.setPower(-0.4);
+            robot.bottomRight.setPower(-0.4);
             telemetry.addData("Path", "Leg 1: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
