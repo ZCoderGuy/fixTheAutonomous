@@ -84,7 +84,7 @@ class AutoBlueLeft extends LinearOpMode {
         sleep(500);
         if (robot.swingSensor.blue() > 3) {
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 0.45)) {
+            while (opModeIsActive() && (runtime.seconds() < 0.65)) {
                 robot.bottomLeft.setPower(-.1);
                 robot.bottomRight.setPower(-.1);
                 robot.topLeft.setPower(-.1);
@@ -153,7 +153,7 @@ class AutoBlueLeft extends LinearOpMode {
 
         //Step 1:  Drive sideways for 3 seconds
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 1.1)) {
+        while (opModeIsActive() && (runtime.seconds() < 2)) {
             robot.topLeft.setPower(-0.4);
             robot.topRight.setPower(-0.4);
             robot.bottomLeft.setPower(0.4);
